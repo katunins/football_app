@@ -27,7 +27,7 @@
    ```
 2. Для iOS выполните:
    ```bash
-   cd ios && pod install && cd ..
+   npm run ios
    ```
 3. Запустите приложение:
    - Android: `npm run android`
@@ -44,7 +44,9 @@
 Используется публичный API [football-data.org](https://www.football-data.org/documentation/quickstart) для получения информации о командах, игроках и матчах.
 
 ## Скриншоты
-_(Добавьте сюда скриншоты приложения)_
+
+![Скриншот 1](./assets/1.png)
+![Скриншот 2](./assets/2.png)
 
 ---
 
