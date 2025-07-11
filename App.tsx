@@ -1,24 +1,33 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { SafeAreaView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { TeamsListScreen } from './screens/TeamsList.screen';
+import { SecondScreen } from './screens/Second.screen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Provider } from 'react-redux'
+import { store } from './store';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+
+  const Stack = createNativeStackNavigator();
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: 100, flexDirection: 'row' }}>
-        <View style={{ backgroundColor: 'blue', flex: 0.2 }} />
-        <View style={{ backgroundColor: 'red', flex: 0.4 }} />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="TeamsList"
+            component={TeamsListScreen}
+            options={{ title: 'Teams' }}
+          />
+          <Stack.Screen
+            name="Second"
+            component={SecondScreen}
+            options={{ title: 'Second' }}
+          />
+        </Stack.Navigator>
+      </Provider>
+    </NavigationContainer>
   );
 }
 
