@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { TeamsListScreen } from './screens/TeamsList.screen';
-import { SecondScreen } from './screens/Second.screen';
+import { TeamDetailScreen } from './screens/TeamDetail.screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux'
 import { store } from './store';
@@ -14,18 +14,22 @@ function App() {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="TeamsList"
-            component={TeamsListScreen}
-            options={{ title: 'Teams' }}
-          />
-          <Stack.Screen
-            name="Second"
-            component={SecondScreen}
-            options={{ title: 'Second' }}
-          />
-        </Stack.Navigator>
+        <View style={styles.container}>
+          <Stack.Navigator screenOptions={{
+            contentStyle: { backgroundColor: 'white', padding: 8 },
+          }}>
+            <Stack.Screen
+              name="TeamsList"
+              component={TeamsListScreen}
+              options={{ title: 'Teams list' }}
+            />
+            <Stack.Screen
+              name="TeamDetail"
+              component={TeamDetailScreen}
+              options={{ title: 'Second' }}
+            />
+          </Stack.Navigator>
+        </View>
       </Provider>
     </NavigationContainer>
   );
@@ -34,6 +38,7 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white'
   },
 });
 
