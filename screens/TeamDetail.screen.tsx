@@ -1,10 +1,7 @@
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native"
+import { ScrollView, StyleSheet, Text } from "react-native"
 import { RootStackParamList } from '../services/types/navigation';
-import { useLayoutEffect, useState } from 'react';
-import { Match, Player } from '../services/types/team';
-import { useGetPlayers } from './hooks/useGetPlayers';
-import { TeamPlayer } from '../components/TeamPlayer';
+import { useLayoutEffect } from 'react';
 import { PlayerList } from '../components/PlayersList';
 import { MatchesList } from '../components/MathesList';
 
@@ -13,10 +10,6 @@ export const TeamDetailScreen = () => {
     const navigation = useNavigation();
 
     const { id, name } = route.params;
-
-
-    const [matches, setMatches] = useState<Match>([])
-
 
     useLayoutEffect(() => {
         navigation.setOptions({ title: name });

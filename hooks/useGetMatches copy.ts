@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Match, MatchResponse } from "../services/types/team"
 import { apiService } from "../services/api.service"
-import { PAGINATION_LIMIT } from "../store/consts"
 
 export const useGetMathches = (id: number) => {
     const [isLoading, setIsLoading] = useState(false)

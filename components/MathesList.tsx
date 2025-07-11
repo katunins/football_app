@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { MatchItem } from './MatchItem';
 import { useGetMathches } from '../hooks/useGetMatches copy';
 
